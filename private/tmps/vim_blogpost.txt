@@ -1,0 +1,144 @@
+# Vim tutorial (Vim in 10 minutes)
+
+## Background
+- I did it become what it is
+- how many people use it
+- some stats?
+- functionality ==> text editor, plugins (give some examples)
+
+## What's special about Vim
+- text objects
+- motions
+- basic usage
+    . how to move within a document
+    . three basic modes and how to switch between them:
+        . normal mode (esc | ctrl + c)
+            ==> be aware that punctuation is considered a word with most of the following commands (shift + "cmd" oftentimes disables this behavior)
+            . h -- j -- k -- l - move left, down, up, right
+            . (o | O) - new line below/above (puts you automatically in insert mode)
+            . (c [movement] | C | cc) - change to [movement] endpoint, from cursor the the end of line, entire line (puts you automatically in insert mode)
+            . (r [char]) - replaces with [char] (does not put you in insert mode)
+            . (d [movement] | D | dd) - delete to [movement] endpoint, from cursor to end of line, entire line
+            . (w) - beginning of next word
+            . (b) - beginning of previous word
+            . (e) - end of next word
+            . (^) - start of line (first non-blank character)
+            . ($) - end of line
+            . (< | >) - indent, de-indent
+            . (ctrl + d) - move down half a page
+            . (ctrl + u) - move up half a page
+            . ({}) - move forward/backward by paragraph
+            . (gg | G) - move to top/bottom of page
+            . (ctrl + e) - scroll the window down
+            . (ctrl + y) - scroll the window up
+            . ([number]G) - move to specific line [number]
+            ==> (ggVG) - select entire file!
+            . (u | U) - convert selected text to lowercase/uppercase
+            . (g;) - puts cursor to last place an edit was made; (g,) lets you move forward after typing (g;) a few times
+            . (gk | gj) - move up/down when a line is wider than the current buffer
+            . (H | M | L) - jump to top/middle/bottom of current 'view'
+            . (: [number] + enter) - move to line [number])
+            . Search commands (repeat search forward with (;) and backward with (,):
+                . (f [character]) - move forward to next [character]
+                . (F [character]) - move backward to next [character]
+                . (t [character]) - move forward to next [character], but positions cursor before it
+                . (T [character]) - move backward to next [character], but positions cursor before it
+                . (*) - search for word under cursor
+                . Advanced search ((n | N) repeat search in same/opposite direction):
+                    . (/[pattern] | ?[pattern]) - search for [pattern] forward/backward
+                    . (:%s/[old pattern]/[new pattern]/[g]) - replace first occurance of [old pattern] in every line or entire document [g]
+
+        . replace mode (shift + r)
+        . (yy) - yank (copy) entire line
+        . (p | P) - paste before/after cursor
+        . (x | X) - delete current/previous character
+        . (u) - undo
+        . (ctrl + r) - redo
+        . (.) - repeat last command
+
+        . take advantage of text objects:
+            . (di( | da( ) - deletes everything inside/in addition to the parentheses (can be braces or even tags)
+            . (dt( | df( ) - deletes everything unTil/including the next parethesis (f = 'find')
+            ==> works with other keywords than (d) (e.g. (v) for highlighting inside parentheses, braces, tags, etc.)
+            . (%) - jumps between matching parentheses or braces
+            . (ysiw [key]) - graps the current word and puts [key] around it (e.g. ' or ")
+
+        . insert mode (many commands in other modes do something and put you in insert mode)
+            . (i) - enter insert mode at cursor position
+            . (I) - insert at beginning of line
+            . (A) - append at end of line
+
+        . visual mode (v | v + motion); move around with same commands as in normal mode
+            . visual block mode (ctrl + v)
+                . (shift + i (...) + esc) - insert in block
+                . (shift + a (...) + esc) - append to block
+            . visual line mode (shift + v)
+            . (y) - yank (copy) marked text
+            . (d) - delete marked text
+            . (c) - delete marked text and go into insert mode
+
+        . record command and execute it multiple times (aka macros):
+            . (q [key] q) - first q starts recording, the second one stops it
+            . (@ [key]) - 'replays' recording
+
+        . exit from normal mode:
+            . (:wq) - save changes and quit (remapped (:w) to (<leader>w) with leader = ",")
+            . (:q!) - quit without saving
+
+        . sorting:
+            . (:sort) - sorts selected rows
+
+        . autocomplete:
+            . (ctrl + n) - uses words in buffer for autocompletion
+
+- buffers
+    . (:ls) - list buffers
+    . (:b[number]) - list buffer [number]
+
+- tabs
+    . (:e [filename]) - edit [filename]
+    . (:tabe) - make a new tab
+    . (gt) - go to next tab
+    . (gT) - go to previous tab
+    . (ctrl + ws | + wv | + ww | + wq) - split windows horizontally, vertically; switch between windows; quit a window
+    . (:only) - close all other split screens
+
+- bookmarks
+    . (m[key]) - assigns current place to [key]
+    . (`[key]) - jump to bookmark
+    . (:marks) - shows all bookmarks
+    . (:delm [key]) - deletes bookmark
+    . (:delm!) - deletes all bookmarks
+
+==> diagram
+
+## .vimrc file and customization options
+- show line numbers and relative line numbers (extremely helpful)
+    . settings for Vim are loaded from .vimrc file (usually in home directory)
+    . most settings can easily be changed, like showing line numbers
+- custom key mapping
+    . tutorial: http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
+- Vim community provides a hugh amount of plugins; ==> link to GitHub repo of my configuration (ultimate Vim configuration)
+- Vim mode in text editors like Atom, Sublime text
+
+#### add whatever useful things are demonstrated in CS50
+
+## links for further reading
+- CS50 video, Vim conference videos
+- git repos of "ultimate vim configuration" (https://github.com/amix/vimrc)
+- a useful cheat sheet: http://vimsheet.com/
+- Vim textbook: https://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980
+- resources to find general information on Vim: http://vim.wikia.com/wiki/
+- really good vim tutorial: https://danielmiessler.com/study/vim/
+- Sublime Six Vim Emulator
+
+## cheat sheet with most
+- motion commands
+- actions on text
+- advances keywords
+
+
+
+# Ranger is a terminal-based file viewer with vim-like key bindings:
+
+
